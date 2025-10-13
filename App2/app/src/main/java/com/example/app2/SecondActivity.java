@@ -23,9 +23,15 @@ public class SecondActivity extends AppCompatActivity {
             return insets;
         });
 
+        //this code is ran within "onCreate" so that it gets ran on startup of the view
+        //this part "captures" the connection from the previous view that created the connection
         Intent in = getIntent();
+        //extract the string from the USERNAME variable,
+        //which is accessible ACROSS VIEWS/.java FILES
         String nameValue = in.getStringExtra(MainActivity.USERNAME);
+        //Get textView on this activity to put text into
         TextView tv = findViewById(R.id.tvMessage);
+        //set text in this view with the value of the USERNAME constant
         tv.setText(String.format("Hello %s, welcome to App2", nameValue));
     }
 }
