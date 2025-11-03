@@ -2,6 +2,9 @@ package com.example.app5;
 
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.EditText;
 import android.widget.RatingBar;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -41,10 +44,21 @@ public class MainActivity extends AppCompatActivity {
     public void setRating(View v){
         TextView tv = findViewById(R.id.tvRating);
         RatingBar rb = findViewById(R.id.rbRating);
-        tv.setText(rb.getNumStars());
+
+        double rating = rb.getRating();
+        tv.setText("Rating = " + rating + "/6");
     }
 
     public void setWebsite(View v){
+        EditText et = findViewById(R.id.etWebsite);
+        //good practice to ensure url is valid (nvm http, by default generally not opened)
+        //this, however, does NOT deal with the case that the user adds https:// themselves
+        String url = "https://" + et.getText().toString();
 
+        WebView browser = findViewById(R.id.wvWebsite);
+        //important line!!!
+        browser.setWebViewClient(new WebViewClient());
+
+        browser.loadUrl(url);
     }
 }
