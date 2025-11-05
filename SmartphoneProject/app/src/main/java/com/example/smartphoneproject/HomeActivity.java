@@ -1,6 +1,7 @@
 package com.example.smartphoneproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -35,6 +36,10 @@ public class HomeActivity extends AppCompatActivity {
         Intent in = getIntent();
 
         String nameValue = in.getStringExtra(FirstActivity.NAME);
+        if (nameValue == null){
+            SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
+            nameValue = prefs.getString("user_name", "");
+        }
         TextView tv = findViewById(R.id.tvWelcome);
         tv.setText("Hello " + nameValue + "!\nWe are very happy to see you.");
 

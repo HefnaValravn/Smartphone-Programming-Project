@@ -1,6 +1,7 @@
 package com.example.smartphoneproject;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -25,12 +26,25 @@ public class FirstActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        String name = prefs.getString("user_name", null);
+
+        if (name != null) {
+            Intent in = new Intent(this, HomeActivity.class);
+            startActivity(in);
+            finish();
+        }
+
     }
 
     public void processName(View v){
         Intent in = new Intent(this, HomeActivity.class);
         EditText et = findViewById(R.id.etName);
         String name = et.getText().toString();
+
+        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        prefs.edit().putString("user_name", name).apply();
 
         in.putExtra(NAME, name);
 
