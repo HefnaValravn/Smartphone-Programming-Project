@@ -10,7 +10,7 @@
         android:title="Look me up!"
         app:showAsAction="always" />
     <item
-        android:id="@+id/about_app"
+        android:id="@+id/action_about"
         android:orderInCategory="1"
         android:title="About this app"
         app:showAsAction="never" />

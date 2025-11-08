@@ -93,6 +93,12 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
+        else if (id == R.id.action_about){
+            Intent in = new Intent(this, AboutActivity.class);
+            startActivity(in);
+            return true;
+        }
+
         return super.onOptionsItemSelected(item);
     }
 }

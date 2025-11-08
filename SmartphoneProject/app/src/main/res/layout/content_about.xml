@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingTop="14dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:drawableStart="@drawable/ic_settings"
+        android:drawablePadding="10dp"
+        android:drawableTint="@android:color/holo_purple"
+        android:text="Release date: Sadly never released :(" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="15dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:drawableStart="@drawable/twotone_adb_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@android:color/holo_purple"
+        android:text="App developer: Nicolás Benedetti González" />
+
+    <View
+        android:id="@+id/divider2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="15dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:drawableStart="@android:drawable/stat_sys_phone_call"
+        android:drawablePadding="10dp"
+        android:drawableTint="@android:color/holo_purple"
+        android:text="Contact: nicolabenedetti2005@gmail.com" />
+
+    <View
+        android:id="@+id/divider3"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="15dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:drawableStart="@drawable/outline_ads_click_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@android:color/holo_purple"
+        android:text="Click here to view this app's repository!" />
+
+    <View
+        android:id="@+id/divider4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="15dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:drawableStart="@drawable/outline_ads_click_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@android:color/holo_purple"
+        android:text="Click here to see all my other projects!" />
+
+    <View
+        android:id="@+id/divider5"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_margin="15dp"
+        android:background="?android:attr/listDivider" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:drawableStart="@drawable/outline_ads_click_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="@android:color/holo_purple"
+        android:text="Click here to visit my LinkedIn profile!" />
+</LinearLayout>
