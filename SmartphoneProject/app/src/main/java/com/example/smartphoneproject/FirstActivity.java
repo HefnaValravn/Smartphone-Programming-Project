@@ -27,7 +27,7 @@ public class FirstActivity extends AppCompatActivity {
             return insets;
         });
 
-        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
         String name = prefs.getString("user_name", null);
 
         if (name != null) {
@@ -43,7 +43,7 @@ public class FirstActivity extends AppCompatActivity {
         EditText et = findViewById(R.id.etName);
         String name = et.getText().toString();
 
-        SharedPreferences prefs = getSharedPreferences("user_prefs", MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
         prefs.edit().putString("user_name", name).apply();
 
         in.putExtra(NAME, name);

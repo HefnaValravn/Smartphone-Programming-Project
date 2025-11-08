@@ -1,5 +1,6 @@
 package com.example.smartphoneproject;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -73,11 +74,18 @@ public class AboutActivity extends AppCompatActivity {
 
         tvLinkedin.setOnClickListener(v -> {
             String linkedin = getString(R.string.linkedin);
+            Intent intent;
 
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(linkedin));
-
-            if (intent.resolveActivity(getPackageManager()) != null) {
+            try {
+                // Try to open in LinkedIn app
+                intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.linkedin.com/in/" + linkedin));
+                intent.setPackage("com.linkedin.android"); // force LinkedIn app
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                // fallback to browser
+                intent = new Intent(Intent.ACTION_VIEW,
+                        Uri.parse("https://www.linkedin.com/in/" + linkedin));
                 startActivity(intent);
             }
         });
