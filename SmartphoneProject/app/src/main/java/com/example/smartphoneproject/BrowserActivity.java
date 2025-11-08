@@ -50,6 +50,7 @@ public class BrowserActivity extends AppCompatActivity {
             url = "https://" + url;
         }
 
+        browser.getSettings().setJavaScriptEnabled(true);
         browser.setWebViewClient(new WebViewClient());
         browser.loadUrl(url);
     }
