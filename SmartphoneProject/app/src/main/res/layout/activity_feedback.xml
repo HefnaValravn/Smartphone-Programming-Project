@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="100dp"
+        tools:context=".FeedbackActivity"
+        android:clipToPadding="false"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".FeedbackActivity">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Rate your experience!"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvWriting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/textView13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:drawableStart="@drawable/outline_chat_bubble_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@android:color/holo_green_dark"
+                        android:text="Anything you want to mention? Ideas, criticisms, opinions..."
+                        android:textSize="16sp" />
+
+                    <EditText
+                        android:id="@+id/editTextText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:height="50dp"
+                        android:ems="10"
+                        android:hint='"Wow what a cool app!"'
+                        android:inputType="text"
+                        android:minHeight="48dp" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvRating"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/textView9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:drawableStart="@android:drawable/star_off"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@android:color/holo_orange_dark"
+                        android:text="On a scale of 0 to 5, how did you like the app? (This also reflects how much you like me :) )"
+                        android:textSize="16sp" />
+
+                    <RatingBar
+                        android:id="@+id/rbRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:numStars="5" />
+
+                    <TextView
+                        android:id="@+id/tvRating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:text="Your current selection: 0 stars" />
+
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_margin="5dp"
+                        android:onClick="setRating"
+                        android:text="Set" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cvCheckbox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="8dp">
+
+                    <TextView
+                        android:id="@+id/textView11"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:drawableStart="@drawable/outline_check_24"
+                        android:drawablePadding="10dp"
+                        android:drawableTint="@android:color/holo_blue_dark"
+                        android:text="Which parts of the app, if any, did you like the most?"
+                        android:textSize="16sp" />
+
+                    <CheckBox
+                        android:id="@+id/cbDesign"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:onClick="setCheckboxes"
+                        android:text="The design!" />
+
+                    <CheckBox
+                        android:id="@+id/cbFuncs"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:onClick="setCheckboxes"
+                        android:text="The various functionalities!" />
+
+                    <CheckBox
+                        android:id="@+id/cbNico"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:onClick="setCheckboxes"
+                        android:text="Nico!" />
+
+                    <CheckBox
+                        android:id="@+id/cbNothing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:onClick="setCheckboxes"
+                        android:text="Nothing! It was all terrible and you suck at making apps!" />
+
+                    <TextView
+                        android:id="@+id/tvCheckbox"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:paddingTop="10dp"
+                        android:text="Your current selection:" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center"
+        android:layout_margin="20dp"
+        android:onClick="submitFeedback"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:text="Submit"
+        android:textSize="16sp" />
+
+</FrameLayout>

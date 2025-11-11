@@ -13,7 +13,10 @@
         android:roundIcon="@mipmap/app_icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SmartphoneProject">
-
+        <activity
+            android:name=".FeedbackActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize"/>
         <!--
              TODO: Before you run your application, you need a Google Maps API key.
 
@@ -25,6 +28,7 @@
              project's local.properties file (e.g. MAPS_API_KEY=Aiza...), and replace the
              "YOUR_API_KEY" string in this file with "${MAPS_API_KEY}".
         -->
+        <!-- api key for this section can be found in the local secrets.properties file in the project root -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="${MAPS_API_KEY}" />
