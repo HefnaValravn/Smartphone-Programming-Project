@@ -66,13 +66,13 @@ public class MapSelectionActivity extends AppCompatActivity {
             locations.putParcelable("Switzerland", new MarkerData("Switzerland", 46.82, 8.23));
             locations.putParcelable("Croatia", new MarkerData("Croatia", 45.20, 15.20));
             locations.putParcelable("Portugal", new MarkerData("Portugal", 39.40, -8.22));
-            locations.putParcelable("UK", new MarkerData("UK", 55.38, -3.44));
+            locations.putParcelable("UK", new MarkerData("UK", 52.24,-0.92));
             locations.putParcelable("Ireland", new MarkerData("Ireland", 53.78, -7.31));
             locations.putParcelable("Tunisia", new MarkerData("Tunisia", 33.89, 9.54));
             locations.putParcelable("Cyprus", new MarkerData("Cyprus", 35.13, 33.43));
             locations.putParcelable("Denmark", new MarkerData("Denmark", 56.26, 9.50));
             locations.putParcelable("Estonia", new MarkerData("Estonia", 58.59, 25.01));
-            locations.putParcelable("Sweden", new MarkerData("Sweden", 60.13, 18.64));
+            locations.putParcelable("Sweden", new MarkerData("Sweden", 59.61,17.70));
 
             locations.putString("Option", "countries");
         }
