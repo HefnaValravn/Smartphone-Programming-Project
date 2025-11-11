@@ -63,6 +63,7 @@
                         android:ems="10"
                         android:hint='"Wow what a cool app!"'
                         android:inputType="text"
+                        android:maxLength="200"
                         android:minHeight="48dp" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
