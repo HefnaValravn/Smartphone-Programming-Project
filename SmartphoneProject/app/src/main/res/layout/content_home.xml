@@ -6,15 +6,18 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
+
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/ivMain"
         android:layout_width="244dp"
         android:layout_height="375dp"
+        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.323"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.076"
         app:srcCompat="@drawable/homeactivity_pic" />
 
     <TextView
@@ -29,5 +32,47 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.093" />
+        app:layout_constraintVertical_bias="0.058" />
+
+    <TextView
+        android:id="@+id/tvInfo"
+        android:layout_width="341dp"
+        android:layout_height="45dp"
+        android:text="I'm a Computer Science student from Spain, and this is my app!"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButton2"
+        app:layout_constraintVertical_bias="0.16" />
+
+    <ImageButton
+        android:id="@+id/imageButton2"
+        android:layout_width="251dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="18dp"
+        android:backgroundTint="@android:color/holo_green_light"
+        android:onClick="toggleVisibility"
+        android:tint="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivMain"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/hide_image" />
+
+    <ImageView
+        android:id="@+id/ivSecond"
+        android:layout_width="208dp"
+        android:layout_height="408dp"
+        android:layout_marginTop="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/whytho" />
 </androidx.constraintlayout.widget.ConstraintLayout>

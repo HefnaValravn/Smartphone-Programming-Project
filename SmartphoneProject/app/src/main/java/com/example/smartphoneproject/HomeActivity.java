@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -110,5 +111,22 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void toggleVisibility(View v){
+        ImageView ivMain = findViewById(R.id.ivMain);
+        ImageView ivSecond = findViewById(R.id.ivSecond);
+        TextView tv = findViewById(R.id.tvInfo);
+
+        if (ivMain.getVisibility() == View.INVISIBLE){
+            ivSecond.setVisibility(View.INVISIBLE);
+            ivMain.setVisibility(View.VISIBLE);
+            tv.setText("I'm a Computer Science student from Spain, and this is my app!");
+        }
+        else if (ivMain.getVisibility() == View.VISIBLE){
+            ivSecond.setVisibility(View.VISIBLE);
+            ivMain.setVisibility(View.INVISIBLE);
+            tv.setText("Why would you do that? :(");
+        }
     }
 }
