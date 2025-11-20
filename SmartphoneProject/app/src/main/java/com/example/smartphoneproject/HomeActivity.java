@@ -17,6 +17,8 @@ import com.example.smartphoneproject.databinding.ActivityHomeBinding;
 public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
+    //for greeting message
+    private static boolean greetedThisLaunch = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,8 +58,16 @@ public class HomeActivity extends AppCompatActivity {
         if (nameValue == null){
             nameValue = prefs.getString("user_name", "");
         }
-        TextView tv = findViewById(R.id.tvWelcome);
-        tv.setText("Hello " + nameValue + "!\nWe are very happy to see you.");
+
+        //greet user only if they just opened the app
+        if (!greetedThisLaunch) {
+            Snackbar.make(findViewById(android.R.id.content),
+                            "Hi " + nameValue + ", welcome back!",
+                            Snackbar.LENGTH_SHORT)
+                    .show();
+
+            greetedThisLaunch = true;
+        }
 
         //music state retrieval
         boolean musicOn = prefs.getBoolean("music_on", false);
