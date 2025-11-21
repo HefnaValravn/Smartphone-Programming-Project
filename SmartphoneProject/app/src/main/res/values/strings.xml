@@ -50,4 +50,9 @@
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="title_activity_education">EducationActivity</string>
+    <string name="tab_text_1">Primary</string>
+    <string name="tab_text_2">Secondary + High School</string>
+    <string name="tab_text_3">University</string>
+    <string name="tab_text_4">Erasmus</string>
 </resources>

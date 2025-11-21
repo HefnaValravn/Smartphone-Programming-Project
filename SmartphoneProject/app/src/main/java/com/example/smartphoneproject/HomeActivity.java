@@ -15,6 +15,8 @@ import androidx.appcompat.app.AppCompatDelegate;
 import com.google.android.material.snackbar.Snackbar;
 import com.example.smartphoneproject.databinding.ActivityHomeBinding;
 
+import java.lang.reflect.Method;
+
 public class HomeActivity extends AppCompatActivity {
 
     private ActivityHomeBinding binding;
@@ -98,6 +100,12 @@ public class HomeActivity extends AppCompatActivity {
             return true;
         }
 
+        else if (id == R.id.action_education){
+            Intent in = new Intent(this, EducationActivity.class);
+            startActivity(in);
+            return true;
+        }
+
         else if (id == R.id.action_settings){
             Intent in = new Intent(this, SettingsActivity.class);
             startActivity(in);
@@ -113,6 +121,22 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onMenuOpened(int featureId, Menu menu) {
+        if (menu != null && menu.getClass().getSimpleName().equals("MenuBuilder")) {
+            try {
+                Method m = menu.getClass().getDeclaredMethod("setOptionalIconsVisible", Boolean.TYPE);
+                m.setAccessible(true);
+                m.invoke(menu, true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return super.onMenuOpened(featureId, menu);
+    }
+
+
+    //change image that is shown on clicking the Image Button
     public void toggleVisibility(View v){
         ImageView ivMain = findViewById(R.id.ivMain);
         ImageView ivSecond = findViewById(R.id.ivSecond);
