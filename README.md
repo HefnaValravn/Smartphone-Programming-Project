@@ -5,6 +5,7 @@
 I added some custom images to this project, which I don't want to be public, so
 obviously they're not backed up and are in the .gitignore file. Therefore plis add
 your own favorite pics thanks :)
+I also added a Google Maps functionality, which of course requires an API to work. This could easily be abused, so I've added it to a local file as well. Please replace it with your own API key if you intend on using this feature.
 
 ## Overview
 
