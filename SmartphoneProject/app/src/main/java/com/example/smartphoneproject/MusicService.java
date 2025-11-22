@@ -11,7 +11,7 @@ public class MusicService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        mediaPlayer = MediaPlayer.create(this, R.raw.bossa_nova);
+        mediaPlayer = MediaPlayer.create(this, R.raw.app_music);
         mediaPlayer.setLooping(true);
     }
 
