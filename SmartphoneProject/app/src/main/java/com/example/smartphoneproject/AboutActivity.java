@@ -49,11 +49,15 @@ public class AboutActivity extends AppCompatActivity {
         tvEmail.setOnClickListener(v -> {
             String email = getString(R.string.support_email);
 
-            Intent intent = new Intent(Intent.ACTION_SENDTO);
-            intent.setData(Uri.parse("mailto:" + email)); // only email apps respond
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-            if (intent.resolveActivity(getPackageManager()) != null) {
+            Intent intent;
+            try {
+                // force Gmail
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + email));
+                intent.setPackage("com.google.android.gm");
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                // fallback to any email app
+                intent = new Intent(Intent.ACTION_SENDTO, Uri.parse("mailto:" + email));
                 startActivity(intent);
             }
         });
@@ -62,10 +66,15 @@ public class AboutActivity extends AppCompatActivity {
         tvRepo.setOnClickListener(v -> {
             String repoUrl = getString(R.string.github_repo);
 
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(repoUrl));
-
-            if (intent.resolveActivity(getPackageManager()) != null) {
+            Intent intent;
+            try {
+                // open in GitHub app
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(repoUrl));
+                intent.setPackage("com.github.android");
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                // fallback to browser
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(repoUrl));
                 startActivity(intent);
             }
         });
@@ -73,10 +82,15 @@ public class AboutActivity extends AppCompatActivity {
         tvGithub.setOnClickListener(v -> {
             String profile = getString(R.string.github_profile);
 
-            Intent intent = new Intent(Intent.ACTION_VIEW);
-            intent.setData(Uri.parse(profile));
-
-            if (intent.resolveActivity(getPackageManager()) != null) {
+            Intent intent;
+            try {
+                // open in GitHub app
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(profile));
+                intent.setPackage("com.github.android");
+                startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                // fallback to browser
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse(profile));
                 startActivity(intent);
             }
         });

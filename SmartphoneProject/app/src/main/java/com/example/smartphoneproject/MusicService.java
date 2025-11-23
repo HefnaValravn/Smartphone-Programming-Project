@@ -18,16 +18,23 @@ public class MusicService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         if (!mediaPlayer.isPlaying()) mediaPlayer.start();
-        return START_STICKY;
+        return START_NOT_STICKY;
     }
 
     @Override
     public void onDestroy() {
         if (mediaPlayer != null) {
-            mediaPlayer.stop();
+            if (mediaPlayer.isPlaying()) mediaPlayer.stop();
             mediaPlayer.release();
+            mediaPlayer = null;
         }
         super.onDestroy();
+    }
+
+    @Override
+    public void onTaskRemoved(Intent rootIntent) {
+        stopSelf(); // stops the service when the app/task is removed
+        super.onTaskRemoved(rootIntent);
     }
 
     public static void setVolume(float volume) {
