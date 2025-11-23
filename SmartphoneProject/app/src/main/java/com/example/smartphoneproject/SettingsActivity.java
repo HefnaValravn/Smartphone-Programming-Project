@@ -28,14 +28,13 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        binding = ActivitySettingsBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
         //getting stored settings from storage
         SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
         //retrieve and set theme
         int savedThemeId = prefs.getInt("theme_radio_id", R.id.rbSystem); // default system theme
-        applyTheme(savedThemeId);
-
-        binding = ActivitySettingsBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
 
         setSupportActionBar(binding.toolbar);
         getSupportActionBar().setTitle("Settings");
@@ -51,7 +50,6 @@ public class SettingsActivity extends AppCompatActivity {
         Switch sw = findViewById(R.id.swMusic);
         SeekBar sb = findViewById(R.id.sbVolume);
         RadioGroup radioGroup = findViewById(R.id.rgTheme);
-
 
         boolean musicOn = prefs.getBoolean("music_on", false);
 
@@ -101,13 +99,24 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
 
+        radioGroup.setOnCheckedChangeListener(null);
         radioGroup.check(savedThemeId);
+
         //listener for RadioGroup
         radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
-            applyTheme(checkedId); // apply theme immediately
-            SharedPreferences.Editor editor = prefs.edit();
-            editor.putInt("theme_radio_id", checkedId); // save selection
-            editor.apply();
+            int currentSavedId = prefs.getInt("theme_radio_id", R.id.rbSystem);
+            if (checkedId == currentSavedId) return;
+
+            int newMode = (checkedId == R.id.rbLight)
+                    ? AppCompatDelegate.MODE_NIGHT_NO
+                    : (checkedId == R.id.rbDark)
+                    ? AppCompatDelegate.MODE_NIGHT_YES
+                    : AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM;
+
+            prefs.edit().putInt("theme_radio_id", checkedId).apply();
+
+            AppCompatDelegate.setDefaultNightMode(newMode);
+            recreate();
         });
 
     }
@@ -119,18 +128,6 @@ public class SettingsActivity extends AppCompatActivity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-
-    //helper method to change theme
-    private void applyTheme(int checkedId) {
-        if (checkedId == R.id.rbLight) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        } else if (checkedId == R.id.rbDark) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-        }
     }
 
 }

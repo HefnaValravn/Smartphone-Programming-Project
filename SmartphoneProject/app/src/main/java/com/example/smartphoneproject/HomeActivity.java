@@ -26,18 +26,7 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        //setting theme
         SharedPreferences prefs = getSharedPreferences("settings", MODE_PRIVATE);
-        int savedThemeId = prefs.getInt("theme_radio_id", R.id.rbSystem);
-
-        if (savedThemeId == R.id.rbLight) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-        } else if (savedThemeId == R.id.rbDark) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM);
-        }
-
 
         super.onCreate(savedInstanceState);
 

@@ -49,6 +49,7 @@ public class FirstActivity extends AppCompatActivity {
         in.putExtra(NAME, name);
 
         startActivity(in);
+        finish();
 
     }
 }

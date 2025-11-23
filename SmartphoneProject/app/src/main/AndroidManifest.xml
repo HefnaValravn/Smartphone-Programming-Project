@@ -5,6 +5,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -59,6 +60,7 @@
         <activity
             android:name=".SettingsActivity"
             android:exported="false"
+            android:launchMode="singleTop"
             android:theme="@style/Theme.SmartphoneProject" />
         <activity
             android:name=".BrowserActivity"
